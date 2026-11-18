@@ -1,3 +1,5 @@
+<img src="assets/icon.png" alt="Promptli Comms" width="96" align="right">
+
 # Promptli Comms for Grok Bot
 
 Give your [Grok Bot](https://x.ai/news/introducing-grok-bot) its own email address and phone number. The
