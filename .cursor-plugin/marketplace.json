@@ -1,0 +1,12 @@
+{
+  "name": "promptli",
+  "owner": { "name": "Promptli", "url": "https://comms.promptli.com" },
+  "metadata": { "description": "Promptli Comms for Grok Bot and Cursor: email, SMS and phone calls for agents." },
+  "plugins": [
+    {
+      "name": "promptli-comms",
+      "source": "./",
+      "description": "Email, SMS and AI-disclosed phone calls for Grok Bot, powered by Promptli Comms (hosted MCP with OAuth + skills)."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "promptli": {
+      "type": "http",
+      "url": "https://api.comms.promptli.com/mcp"
+    }
+  }
+}

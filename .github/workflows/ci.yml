@@ -1,0 +1,50 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ["3.11", "3.13"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run pyright
+      - run: uv run pytest -q
+      - run: uv run promptli-grok --help
+
+  plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate plugin files (Cursor / Grok Bot and Grok Build rules, offline)
+        run: python scripts/validate_plugin.py .
+      - name: Cursor's own template validator (pinned)
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/cursor/plugin-template/46216072ac5750f782f95bb325b4d12b7c3ae9c9/scripts/validate-template.mjs -o /tmp/validate-template.mjs
+          node /tmp/validate-template.mjs
+      - name: Lint install.sh
+        run: shellcheck install.sh && sh -n install.sh
+      - name: No secrets in tracked files
+        run: |
+          ! git grep -nE '(psk_(live|test)_[A-Za-z0-9]{8,}|sk-[A-Za-z0-9]{20,}|sk_live_|whsec_[A-Za-z0-9]{8,}|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{20,}|github_pat_|BEGIN [A-Z ]*PRIVATE KEY)' -- . ':!.github/workflows/ci.yml' ':!scripts/validate_plugin.py' ':!uv.lock'
