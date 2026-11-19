@@ -1,7 +1,7 @@
 {
   "name": "promptli-comms",
   "displayName": "Promptli Comms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Give your Grok Bot its own email address and phone number with Promptli Comms: send and reply to email, text, place AI-disclosed calls, read conversations with each person, and answer people who write in.",
   "author": { "name": "Promptli", "url": "https://comms.promptli.com" },
   "publisher": "Promptli",

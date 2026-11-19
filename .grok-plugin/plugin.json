@@ -1,6 +1,6 @@
 {
   "name": "promptli-comms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Promptli Comms for Grok: the agent's own email address and phone number. Send and reply to email, text, place AI-disclosed calls and read conversations through the hosted Promptli Comms MCP server. Sign in with your Promptli account on first connect.",
   "author": { "name": "Promptli", "url": "https://comms.promptli.com" },
   "homepage": "https://comms.promptli.com",

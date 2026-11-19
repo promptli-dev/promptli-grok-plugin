@@ -8,7 +8,6 @@ setup and doctor belong in `promptli-gateway` (promptli-comms repo), not here.
   `.grok-plugin/plugin.json` describes the same payload for Grok Build (xAI plugin marketplace).
 - `promptli_grok/adapter.py`: GrokRoutineAdapter (Agent Link turn → POST to a routine's webhook trigger).
 - `promptli_grok/payload.py`: the JSON body (`promptli.email|sms|voicemail`, `delivery_id`, reply hint).
-- `promptli_grok/gateway.py`: one queue per (contact, channel); works around promptli-gateway 0.2.1.
 - `promptli_grok/cli.py`: `promptli-grok` Typer CLI (runtime id / config dir: `promptli-grok`).
 - `install.sh`: curl installer (own venv under ~/.local/share/promptli-grok, shim in ~/.local/bin).
 

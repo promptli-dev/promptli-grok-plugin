@@ -144,7 +144,7 @@ Install from a local checkout: `PROMPTLI_GROK_SOURCE=$PWD sh install.sh`.
    <https://cursor.com/marketplace/publish>. Submissions are reviewed by hand and must be open source.
    Grok Bot loads plugins only from the Cursor Marketplace or dashboard, not from local folders.
 2. Once the plugin is listed, add, authenticate and use it in Grok Bot, in Promptli test mode.
-3. Publish `promptli-grok` to PyPI (tag `grok-v0.1.0`). Serve `install.sh` at
+3. Publish `promptli-grok` to PyPI (tag `grok-v0.1.1`). Serve `install.sh` at
    `https://comms.promptli.com/install/grok.sh`.
 4. Optional, for Grok Build: open a PR to <https://github.com/xai-org/plugin-marketplace> that adds a
    remote entry pinned to a full commit SHA.
